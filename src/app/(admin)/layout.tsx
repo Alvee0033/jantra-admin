@@ -24,12 +24,9 @@ import Logo from "@/components/Logo";
 
 const menuItems = [
     { label: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
+    { label: "Leads", href: "/admin/leads", icon: Bell },
     { label: "Services", href: "/admin/services", icon: Layers },
     { label: "Pricing", href: "/admin/pricing", icon: DollarSign },
-    { label: "Funds", href: "/admin/funds", icon: DollarSign },
-    { label: "Leads", href: "/admin/leads", icon: Bell },
-    { label: "Reports", href: "/admin/report", icon: ShieldCheck },
-    { label: "Architecture", href: "/admin/architecture", icon: Server },
     { label: "Team", href: "/admin/team", icon: UserSquare2 },
     { label: "Careers", href: "/admin/careers", icon: Users },
     { label: "Blog", href: "/admin/blog", icon: FileText },
@@ -39,7 +36,7 @@ const menuItems = [
 const mobileQuickActions = [
     { label: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
     { label: "Leads", href: "/admin/leads", icon: Bell },
-    { label: "Reports", href: "/admin/report", icon: ShieldCheck }
+    { label: "Blog", href: "/admin/blog", icon: FileText }
 ];
 
 function AdminLayoutContent({ children }: { children: React.ReactNode }) {
