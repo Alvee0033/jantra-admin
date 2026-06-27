@@ -502,7 +502,7 @@ export default function WorkManagementPage() {
                                                     )}
                                                 >
                                                     {project.published ? <Globe className="w-3 h-3 animate-pulse" /> : <Monitor className="w-3 h-3" />}
-                                                    {project.published ? 'Live Environment' : 'Sandbox Draft'}
+                                                    {project.published ? 'Live Status' : 'Sandbox Draft'}
                                                 </button>
                                                 <button
                                                     onClick={() => handleToggleFeatured(project.id)}

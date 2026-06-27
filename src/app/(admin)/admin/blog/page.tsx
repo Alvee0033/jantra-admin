@@ -123,7 +123,7 @@ export default function BlogManagementPage() {
                 <div className="space-y-1">
                     <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-3">
                         <FileText className="w-8 h-8 text-orange-500" />
-                        Content Repository
+                        Blog Posts
                     </h2>
                     <p className="text-slate-500 font-medium leading-relaxed">Curate industrial insights and high-performance engineering narratives.</p>
                 </div>
@@ -133,7 +133,7 @@ export default function BlogManagementPage() {
                         <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-orange-500 transition-colors" />
                         <input 
                             type="text" 
-                            placeholder="Scan articles..."
+                            placeholder="Search posts..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             className="bg-white border border-slate-200 rounded-2xl pl-11 pr-4 py-3 text-sm focus:outline-none focus:ring-4 focus:ring-orange-500/10 focus:border-orange-500 transition-all w-full sm:w-64 shadow-sm font-medium"
@@ -145,7 +145,7 @@ export default function BlogManagementPage() {
                         className="inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-3 rounded-2xl font-bold hover:bg-orange-600 transition-all shadow-xl shadow-slate-200 active:scale-95 text-sm group"
                     >
                         <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform duration-300" /> 
-                        <span>Create Insight</span>
+                        <span>Add Blog Post</span>
                     </button>
                 </div>
             </motion.header>
@@ -170,7 +170,7 @@ export default function BlogManagementPage() {
                         <div className="px-6 py-20 text-center">
                             <div className="flex flex-col items-center gap-4 opacity-40">
                                 <Layers className="w-16 h-16 text-slate-300" />
-                                <p className="text-slate-400 font-bold uppercase tracking-widest">No matching insights recorded</p>
+                                <p className="text-slate-400 font-bold uppercase tracking-widest">No posts found</p>
                             </div>
                         </div>
                     ) : (
@@ -194,7 +194,7 @@ export default function BlogManagementPage() {
                                             <div className="w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center border border-slate-200">
                                                 <User className="w-2.5 h-2.5 text-slate-400" />
                                             </div>
-                                            <span className="text-[9px] text-slate-505 font-bold uppercase tracking-wider truncate">{post.author?.name || "Jantra Intelligence"}</span>
+                                            <span className="text-[9px] text-slate-505 font-bold uppercase tracking-wider truncate">{post.author?.name || "Jantra Admin"}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -250,10 +250,10 @@ export default function BlogManagementPage() {
                     <table className="w-full text-left border-separate border-spacing-0">
                         <thead>
                             <tr className="bg-slate-50/50 border-b border-slate-100">
-                                <th className="px-8 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Article Identity</th>
+                                <th className="px-8 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Post Title</th>
                                 <th className="px-8 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 text-center">Taxonomy</th>
-                                <th className="px-8 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 text-center">Temporal Data</th>
-                                <th className="px-8 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 text-center">Environment</th>
+                                <th className="px-8 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 text-center">Date Created</th>
+                                <th className="px-8 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 text-center">Status</th>
                                 <th className="px-8 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 text-right">Operations</th>
                             </tr>
                         </thead>
@@ -272,7 +272,7 @@ export default function BlogManagementPage() {
                                     <td colSpan={5} className="px-8 py-32 text-center">
                                         <div className="flex flex-col items-center gap-4 opacity-40">
                                             <Layers className="w-16 h-16 text-slate-300" />
-                                            <p className="text-slate-400 font-bold uppercase tracking-widest">No matching insights recorded</p>
+                                            <p className="text-slate-400 font-bold uppercase tracking-widest">No posts found</p>
                                         </div>
                                     </td>
                                 </tr>
@@ -292,7 +292,7 @@ export default function BlogManagementPage() {
                                                     <div className="w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center border border-slate-200">
                                                         <User className="w-2.5 h-2.5 text-slate-400" />
                                                     </div>
-                                                    <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">{post.author?.name || "Jantra Intelligence"}</span>
+                                                    <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">{post.author?.name || "Jantra Admin"}</span>
                                                 </div>
                                             </div>
                                         </td>
@@ -324,7 +324,7 @@ export default function BlogManagementPage() {
                                                     )}
                                                 >
                                                     {post.published ? <Globe className="w-3.5 h-3.5 animate-pulse" /> : <Clock className="w-3.5 h-3.5" />}
-                                                    {post.published ? 'Live Node' : 'In Review'}
+                                                    {post.published ? 'Published' : 'Draft'}
                                                 </button>
                                             </div>
                                         </td>
@@ -415,9 +415,9 @@ export default function BlogManagementPage() {
                             <div className="w-20 h-20 bg-red-50 text-red-500 rounded-[2rem] flex items-center justify-center mx-auto mb-8 rotate-12 transition-transform hover:rotate-0">
                                 <Trash2 className="w-10 h-10" />
                             </div>
-                            <h3 className="text-2xl font-black text-slate-900 tracking-tight mb-4">Decommission Insight?</h3>
+                            <h3 className="text-2xl font-black text-slate-900 tracking-tight mb-4">Delete Post?</h3>
                             <p className="text-slate-500 font-medium leading-relaxed mb-10">
-                                This will permanently remove the article from the production network. This operation is irreversible.
+                                This will permanently delete this blog post.
                             </p>
                             <div className="flex gap-4">
                                 <button
@@ -430,7 +430,7 @@ export default function BlogManagementPage() {
                                     onClick={confirmDelete}
                                     className="flex-1 py-4 rounded-2xl bg-red-600 text-white font-black text-[10px] uppercase tracking-widest hover:bg-red-700 transition-all shadow-xl shadow-red-200 active:scale-95"
                                 >
-                                    Confirm Wipe
+                                    Confirm Delete
                                 </button>
                             </div>
                         </motion.div>
@@ -545,9 +545,9 @@ function BlogPostModal({ post, authors, onClose, onSuccess }: {
                         </div>
                         <div>
                             <h3 className="text-3xl font-black tracking-tight leading-tight">
-                                {post ? "Refining Corporate Intel" : "Architecting New Insight"}
+                                {post ? "Edit Blog Post" : "Add New Blog Post"}
                             </h3>
-                            <p className="text-slate-400 text-xs mt-6 font-bold leading-relaxed tracking-widest uppercase opacity-60">Insight Module v2.0</p>
+                            <p className="text-slate-400 text-xs mt-6 font-bold leading-relaxed tracking-widest uppercase opacity-60">Blog Module</p>
                         </div>
 
                         <div className="pt-10 space-y-5">
@@ -636,7 +636,7 @@ function BlogPostModal({ post, authors, onClose, onSuccess }: {
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
                                 <div className="space-y-4">
-                                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-900 ml-2 text-center block">Category Cluster</label>
+                                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-900 ml-2 text-center block">Category</label>
                                     <div className="relative group">
                                         <select
                                             value={formData.category}
@@ -653,21 +653,21 @@ function BlogPostModal({ post, authors, onClose, onSuccess }: {
                                     </div>
                                 </div>
                                 <div className="space-y-4">
-                                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-900 ml-2 text-center block">Lead Author</label>
+                                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-900 ml-2 text-center block">Author</label>
                                     <select
                                         required
                                         value={formData.authorId}
                                         onChange={e => setFormData({ ...formData, authorId: e.target.value })}
                                         className="w-full appearance-none bg-slate-50 border-2 border-slate-100 rounded-2xl px-6 py-4 text-xs font-black uppercase tracking-widest text-slate-600 focus:outline-none focus:border-orange-500 transition-all"
                                     >
-                                        <option value="" disabled>IDENTIFY AUTHOR</option>
+                                        <option value="" disabled>SELECT AUTHOR</option>
                                         {authors.map(author => (
                                             <option key={author.id} value={author.id}>{author.name.toUpperCase()}</option>
                                         ))}
                                     </select>
                                 </div>
                                 <div className="space-y-4">
-                                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-900 ml-2 text-center block">Time Optimization</label>
+                                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-900 ml-2 text-center block">Read Time</label>
                                     <div className="relative">
                                         <Clock className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-300" />
                                         <input
@@ -682,7 +682,7 @@ function BlogPostModal({ post, authors, onClose, onSuccess }: {
                             </div>
 
                             <div className="space-y-3">
-                                <label className="text-[10px] font-black uppercase tracking-widest text-slate-900 ml-2">Article Abstract (Hook)</label>
+                                <label className="text-[10px] font-black uppercase tracking-widest text-slate-900 ml-2">Short Excerpt (Hook)</label>
                                 <textarea
                                     required rows={3}
                                     value={formData.excerpt}
@@ -694,7 +694,7 @@ function BlogPostModal({ post, authors, onClose, onSuccess }: {
 
                             <div className="space-y-3">
                                 <div className="flex items-center justify-between px-2">
-                                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-900">Research Body (Markdown)</label>
+                                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-900">Post Content (Markdown)</label>
                                     <div className="flex items-center gap-2 text-[9px] font-bold text-slate-400 uppercase tracking-widest">
                                         <Sparkles className="w-3 h-3 text-orange-500" /> Rich formatting active
                                     </div>
@@ -721,8 +721,8 @@ function BlogPostModal({ post, authors, onClose, onSuccess }: {
                                     <Globe className={cn("w-6 h-6", formData.published ? "text-white animate-pulse" : "text-slate-300")} />
                                 </button>
                                 <div className="flex flex-col">
-                                    <span className="text-[10px] font-black uppercase tracking-widest text-slate-900">Public Environment Broadcast</span>
-                                    <span className="text-[9px] font-bold text-slate-400 mt-1">{formData.published ? 'ACTIVE SIGNAL' : 'OFFLINE DRAFT'}</span>
+                                    <span className="text-[10px] font-black uppercase tracking-widest text-slate-900">Public Status Broadcast</span>
+                                    <span className="text-[9px] font-bold text-slate-400 mt-1">{formData.published ? 'PUBLISHED' : 'DRAFT'}</span>
                                 </div>
                             </div>
 

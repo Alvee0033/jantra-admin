@@ -103,9 +103,9 @@ export default function TeamManagementPage() {
                 <div className="space-y-1">
                     <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-3">
                         <Shield className="w-8 h-8 text-orange-500" />
-                        Human Infrastructure
+                        Team Members
                     </h2>
-                    <p className="text-slate-500 font-medium leading-relaxed">Managing the senior architecture team and technical leadership nodes.</p>
+                    <p className="text-slate-500 font-medium leading-relaxed">Managing the senior team members and management.</p>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -113,7 +113,7 @@ export default function TeamManagementPage() {
                         <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-orange-500 transition-colors" />
                         <input 
                             type="text" 
-                            placeholder="Identify architect..."
+                            placeholder="Search team..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             className="bg-white border border-slate-200 rounded-2xl pl-11 pr-4 py-3 text-sm focus:outline-none focus:ring-4 focus:ring-orange-500/10 focus:border-orange-500 transition-all w-full sm:w-64 shadow-sm font-medium"
@@ -125,7 +125,7 @@ export default function TeamManagementPage() {
                         className="inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-3 rounded-2xl font-bold hover:bg-orange-600 transition-all shadow-xl shadow-slate-200 active:scale-95 text-sm group"
                     >
                         <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform duration-300" /> 
-                        <span>Onboard Architect</span>
+                        <span>Add Team Member</span>
                     </button>
                 </div>
             </motion.header>
@@ -150,7 +150,7 @@ export default function TeamManagementPage() {
                         <div className="px-6 py-20 text-center">
                             <div className="flex flex-col items-center gap-4 opacity-40">
                                 <Users className="w-16 h-16 text-slate-300" />
-                                <p className="text-slate-400 font-bold uppercase tracking-widest">No leadership nodes identified</p>
+                                <p className="text-slate-400 font-bold uppercase tracking-widest">No team members identified</p>
                             </div>
                         </div>
                     ) : (
@@ -177,7 +177,7 @@ export default function TeamManagementPage() {
                                     </div>
                                     <div className="min-w-0 flex-1">
                                         <h3 className="font-bold text-slate-900 truncate">{member.name}</h3>
-                                        <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-0.5">Architect #{member.order.toString().padStart(3, '0')}</p>
+                                        <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-0.5">Member #{member.order.toString().padStart(3, '0')}</p>
                                     </div>
                                 </div>
 
@@ -274,7 +274,7 @@ export default function TeamManagementPage() {
                                     <td colSpan={4} className="px-8 py-32 text-center">
                                         <div className="flex flex-col items-center gap-4 opacity-40">
                                             <Users className="w-16 h-16 text-slate-300" />
-                                            <p className="text-slate-400 font-bold uppercase tracking-widest">No leadership nodes identified</p>
+                                            <p className="text-slate-400 font-bold uppercase tracking-widest">No team members identified</p>
                                         </div>
                                     </td>
                                 </tr>
@@ -304,7 +304,7 @@ export default function TeamManagementPage() {
                                                 <div className="space-y-1">
                                                     <h3 className="font-bold text-slate-900 group-hover:text-orange-600 transition-colors">{member.name}</h3>
                                                     <div className="flex items-center gap-2">
-                                                        <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Architect #{member.order.toString().padStart(3, '0')}</span>
+                                                        <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Member #{member.order.toString().padStart(3, '0')}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -413,7 +413,7 @@ export default function TeamManagementPage() {
                             <div className="w-20 h-20 bg-red-50 text-red-500 rounded-[2rem] flex items-center justify-center mx-auto mb-8">
                                 <Trash2 className="w-10 h-10" />
                             </div>
-                            <h3 className="text-2xl font-black text-slate-900 tracking-tight mb-4">Decommission Node?</h3>
+                            <h3 className="text-2xl font-black text-slate-900 tracking-tight mb-4">Delete Member?</h3>
                             <p className="text-slate-500 font-medium leading-relaxed mb-10">
                                 This will remove the architect from the public interface. Biosignature records will remain in the secure archive.
                             </p>
@@ -428,7 +428,7 @@ export default function TeamManagementPage() {
                                     onClick={confirmDelete}
                                     className="flex-1 py-4 rounded-2xl bg-red-600 text-white font-black text-[10px] uppercase tracking-[0.2em] hover:bg-red-700 transition-all shadow-xl shadow-red-200"
                                 >
-                                    Confirm Wipe
+                                    Confirm Delete
                                 </button>
                             </div>
                         </motion.div>
@@ -517,12 +517,12 @@ function TeamMemberModal({ member, onClose, onSuccess }: { member: TeamMember | 
                     <div className="space-y-12">
                         <div className="inline-flex items-center gap-3 bg-white/10 px-4 py-2 rounded-xl backdrop-blur-md">
                             <Sparkles className="w-4 h-4 text-orange-500" />
-                            <span className="text-[10px] font-black uppercase tracking-widest text-slate-300">Identity Config</span>
+                            <span className="text-[10px] font-black uppercase tracking-widest text-slate-300">Member Profile</span>
                         </div>
                         
                         <div>
                             <h3 className="text-4xl font-black tracking-tight leading-tight mb-4">
-                                {member ? "Calibrate Leadership Node" : "Synchronize New Architect"}
+                                {member ? "Edit Team Member" : "Add New Team Member"}
                             </h3>
                             <p className="text-slate-400 text-sm font-medium leading-relaxed italic opacity-60">
                                 Engineering the human element of industrial excellence.
@@ -532,7 +532,7 @@ function TeamMemberModal({ member, onClose, onSuccess }: { member: TeamMember | 
                         {/* Order Indicator */}
                         <div className="bg-white/5 border border-white/10 p-8 rounded-[2.5rem] backdrop-blur-sm">
                             <div className="flex items-center justify-between">
-                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Global Order</span>
+                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Display Order</span>
                                 <span className="text-2xl font-black text-orange-500">#{formData.order.toString().padStart(2, '0')}</span>
                             </div>
                         </div>
@@ -547,7 +547,7 @@ function TeamMemberModal({ member, onClose, onSuccess }: { member: TeamMember | 
                 {/* Main Interaction Area */}
                 <div className="flex-1 flex flex-col bg-white min-w-0">
                     <div className="flex items-center justify-between p-5 sm:p-8 border-b border-slate-100 shrink-0">
-                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Architect Specification</span>
+                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Team Member Details</span>
                         <button onClick={onClose} className="p-3 bg-slate-50 hover:bg-slate-900 hover:text-white rounded-2xl transition-all">
                             <X className="w-5 h-5" />
                         </button>
@@ -557,7 +557,7 @@ function TeamMemberModal({ member, onClose, onSuccess }: { member: TeamMember | 
                         <form onSubmit={handleSubmit} className="space-y-6 md:space-y-10">
                             {/* Avatar Upload Core */}
                             <div className="space-y-6">
-                                <label className="text-[10px] font-black uppercase tracking-widest text-slate-900 ml-4 block text-center md:text-left">Biosignature (Image)</label>
+                                <label className="text-[10px] font-black uppercase tracking-widest text-slate-900 ml-4 block text-center md:text-left">Profile Picture</label>
                                 <div className="flex flex-col md:flex-row items-center gap-8 bg-slate-50 p-8 rounded-[2.5rem] border-2 border-slate-100 group">
                                     <div className="relative w-32 h-32 shrink-0">
                                         <div className="absolute inset-0 bg-orange-500/10 rounded-[2rem] scale-110 rotate-6 group-hover:rotate-0 transition-transform" />
@@ -575,7 +575,7 @@ function TeamMemberModal({ member, onClose, onSuccess }: { member: TeamMember | 
                                         </div>
                                     </div>
                                     <div className="flex-1 space-y-4 text-center md:text-left">
-                                        <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Transmit New File</h4>
+                                        <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Upload Photo</h4>
                                         <p className="text-[10px] text-slate-400 font-medium leading-relaxed italic">JPG/PNG encoded data limited to 2MB. Recommendation: Transparent PNG or Corporate Backdrop.</p>
                                         <label className="inline-flex items-center gap-3 bg-slate-950 text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-orange-600 transition-all cursor-pointer shadow-lg active:scale-95">
                                             <Camera className="w-4 h-4" />
@@ -658,7 +658,7 @@ function TeamMemberModal({ member, onClose, onSuccess }: { member: TeamMember | 
                             </div>
 
                             <div className="space-y-4">
-                                <label className="text-[10px] font-black uppercase tracking-widest text-slate-900 ml-4">Strategic Narrative (Bio)</label>
+                                <label className="text-[10px] font-black uppercase tracking-widest text-slate-900 ml-4">Biography (Bio)</label>
                                 <textarea
                                     required rows={4} 
                                     value={formData.bio} 
@@ -700,7 +700,7 @@ function TeamMemberModal({ member, onClose, onSuccess }: { member: TeamMember | 
                                     </div>
                                 </div>
                                 <div className="space-y-4">
-                                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-900 ml-4 lg:text-center block">Global Order</label>
+                                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-900 ml-4 lg:text-center block">Display Order</label>
                                     <input 
                                         type="number" 
                                         value={formData.order} 

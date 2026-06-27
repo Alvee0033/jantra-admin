@@ -774,7 +774,7 @@ export default function FundManagementPage() {
                                     onClick={confirmDelete}
                                     className="flex-1 py-4 rounded-2xl bg-red-600 text-white font-black text-[10px] uppercase tracking-[0.2em] hover:bg-red-700 transition-all shadow-xl shadow-red-200"
                                 >
-                                    Confirm Wipe
+                                    Confirm Delete
                                 </button>
                             </div>
                         </motion.div>

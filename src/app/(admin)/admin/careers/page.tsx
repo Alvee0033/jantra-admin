@@ -144,7 +144,7 @@ export default function AdminCareersPage() {
         <div className="space-y-6">
             <header className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <h2 className="text-2xl font-bold text-slate-800 tracking-tight">Talent Acquisition</h2>
+                    <h2 className="text-2xl font-bold text-slate-800 tracking-tight">Careers</h2>
                     <p className="text-sm text-slate-500">Review and manage incoming job applications.</p>
                 </div>
 
@@ -494,7 +494,7 @@ export default function AdminCareersPage() {
                                 </div>
                                 <div className="space-y-6">
                                     <div>
-                                        <h4 className="text-[10px] uppercase tracking-widest text-slate-400 mb-3 font-bold">Contact Intelligence</h4>
+                                        <h4 className="text-[10px] uppercase tracking-widest text-slate-400 mb-3 font-bold">Contact Info</h4>
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                             <div className="flex items-center gap-3 p-3 rounded-2xl bg-white border border-slate-100 shadow-sm text-sm">
                                                 <Mail className="w-4 h-4 text-orange-500" /> {selectedApplication.email}
@@ -507,7 +507,7 @@ export default function AdminCareersPage() {
                                         </div>
                                     </div>
                                     <div>
-                                        <h4 className="text-[10px] uppercase tracking-widest text-slate-400 mb-3 font-bold">Verification Links</h4>
+                                        <h4 className="text-[10px] uppercase tracking-widest text-slate-400 mb-3 font-bold">Links</h4>
                                         <div className="flex flex-wrap gap-3">
                                             <a href={selectedApplication.resumeUrl} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-orange-500 text-white font-bold text-xs hover:bg-orange-600 transition-all shadow-lg">
                                                 <Download className="w-4 h-4" /> Download CV
@@ -533,10 +533,10 @@ export default function AdminCareersPage() {
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
                                     <button onClick={() => setSelectedApplication(null)} className="w-full sm:w-auto px-6 py-2.5 rounded-xl text-slate-600 font-bold text-xs hover:bg-slate-200 transition-all text-center">
-                                        Release Analysis
+                                        Close Details
                                     </button>
                                     <a href={`mailto:${selectedApplication.email}`} className="w-full sm:w-auto px-8 py-2.5 rounded-xl bg-slate-900 text-white font-bold text-xs hover:bg-orange-600 transition-all shadow-lg shadow-slate-200 flex items-center justify-center gap-2">
-                                        Initiate Onboarding
+                                        Contact Applicant
                                     </a>
                                 </div>
                             </div>
@@ -638,8 +638,8 @@ function JobModal({ job, onClose, onSuccess }: { job: Job | null, onClose: () =>
                 >
                 <div className="bg-slate-900 px-8 py-6 flex items-center justify-between text-white shrink-0">
                     <div>
-                        <h3 className="text-xl font-bold tracking-tight">{job ? "Optimize Opportunity" : "Architect New Career Path"}</h3>
-                        <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Personnel Infrastructure</p>
+                        <h3 className="text-xl font-bold tracking-tight">{job ? "Edit Job Posting" : "Add New Job Posting"}</h3>
+                        <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Careers Management</p>
                     </div>
                     <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-full transition-colors text-white/60 hover:text-white">
                         <X className="w-5 h-5" />

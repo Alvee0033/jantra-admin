@@ -102,7 +102,7 @@ export default function LeadsPage() {
                 <div>
                     <div className="flex items-center gap-3 mb-2">
                         <div className="w-8 h-1 bg-orange-500 rounded-full" />
-                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-orange-500">Pipeline Intelligence</span>
+                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-orange-500">Leads Management</span>
                     </div>
                     <h2 className="text-4xl font-black text-slate-900 tracking-tighter uppercase whitespace-pre-line leading-none">
                         Lead<br/>Signals
@@ -114,7 +114,7 @@ export default function LeadsPage() {
                         <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-orange-500 transition-colors pointer-events-none" />
                         <input
                             type="text"
-                            placeholder="Identify prospect..."
+                            placeholder="Search leads..."
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                             className="bg-white border border-slate-200/80 rounded-[1.5rem] pl-12 pr-6 py-4 text-sm focus:ring-2 focus:ring-orange-300 w-full sm:w-64 transition-all shadow-sm font-medium"
@@ -153,7 +153,7 @@ export default function LeadsPage() {
                     ) : leads.length === 0 ? (
                         <div className="px-6 py-20 text-center">
                             <Target className="w-12 h-12 text-slate-150 mx-auto mb-4" />
-                            <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">No Active Signals Detected</p>
+                            <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">No leads found</p>
                         </div>
                     ) : (
                         leads.map((lead, i) => (
@@ -240,11 +240,11 @@ export default function LeadsPage() {
                     <table className="w-full text-left border-collapse">
                         <thead>
                             <tr className="bg-slate-900/[0.02] border-b border-slate-100">
-                                <th className="px-10 py-8 text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Prospect Identity</th>
-                                <th className="px-10 py-8 text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Service Vector</th>
-                                <th className="px-10 py-8 text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Signal Date</th>
-                                <th className="px-10 py-8 text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Status Node</th>
-                                <th className="px-10 py-8 text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Tactical Actions</th>
+                                <th className="px-10 py-8 text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Contact Info</th>
+                                <th className="px-10 py-8 text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Service</th>
+                                <th className="px-10 py-8 text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Date Received</th>
+                                <th className="px-10 py-8 text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Status</th>
+                                <th className="px-10 py-8 text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Actions</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-50 italic-none">
@@ -258,7 +258,7 @@ export default function LeadsPage() {
                                 <tr>
                                     <td colSpan={5} className="px-10 py-32 text-center">
                                         <Target className="w-12 h-12 text-slate-150 mx-auto mb-4" />
-                                        <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">No Active Signals Detected</p>
+                                        <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">No leads found</p>
                                     </td>
                                 </tr>
                             ) : (
@@ -353,7 +353,7 @@ export default function LeadsPage() {
 
                 <div className="px-10 py-8 bg-slate-900/[0.02] flex items-center justify-between border-t border-slate-100">
                     <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">
-                        Vector Sequence <span className="text-slate-900">{page}</span> // Total Capacitance <span className="text-slate-900">{totalPages}</span>
+                        Page <span className="text-slate-900">{page}</span> // Total Pages <span className="text-slate-900">{totalPages}</span>
                     </p>
                     <div className="flex items-center gap-3">
                         <button
@@ -400,11 +400,11 @@ export default function LeadsPage() {
 
                                     <div className="space-y-6">
                                         <div>
-                                            <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-1">Signal Source</p>
+                                            <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-1">Referral</p>
                                             <p className="text-xs font-bold text-slate-300 italic opacity-80">{selectedLead.referral || 'Direct Infrastructure'}</p>
                                         </div>
                                         <div>
-                                            <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-1">Network Identity</p>
+                                            <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-1">Contact Information</p>
                                             <p className="text-xs font-bold text-slate-300 flex items-center gap-2">
                                                 <Mail className="w-3.5 h-3.5 text-orange-500" /> {selectedLead.email}
                                             </p>
@@ -421,7 +421,7 @@ export default function LeadsPage() {
                                 <div className="flex items-center justify-between mb-6 sm:mb-8 shrink-0">
                                     <div className="flex items-center gap-4">
                                         <div className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
-                                        <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Signal Reconstruction</h4>
+                                        <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Lead Details</h4>
                                     </div>
                                     <button onClick={() => setSelectedLead(null)} className="p-3 hover:bg-slate-200/50 rounded-full transition-colors text-slate-400 hover:text-slate-900 hidden md:block">
                                         <X className="w-6 h-6" />
@@ -430,15 +430,15 @@ export default function LeadsPage() {
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 sm:mb-10 shrink-0">
                                     <div className="p-4 sm:p-5 rounded-[1.5rem] sm:rounded-[2rem] bg-white border border-slate-100 shadow-sm relative overflow-hidden group">
-                                        <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-2">Company Vector</p>
+                                        <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-2">Company</p>
                                         <p className="text-base font-black text-slate-900 tracking-tight leading-none truncate">{selectedLead.company || 'Personal Node'}</p>
                                     </div>
                                     <div className="p-4 sm:p-5 rounded-[1.5rem] sm:rounded-[2rem] bg-white border border-slate-100 shadow-sm relative overflow-hidden group">
-                                        <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-2">Geographic Node</p>
+                                        <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-2">Country</p>
                                         <p className="text-base font-black text-slate-900 tracking-tight leading-none truncate">{selectedLead.country || 'Global Grid'}</p>
                                     </div>
                                     <div className="p-4 sm:p-5 rounded-[1.5rem] sm:rounded-[2rem] bg-white border border-slate-100 shadow-sm relative overflow-hidden group">
-                                        <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-2">Resource Budget</p>
+                                        <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-2">Budget</p>
                                         <p className="text-base font-black text-orange-600 tracking-tight leading-none">{selectedLead.budget || 'Undetermined'}</p>
                                     </div>
                                 </div>
@@ -447,7 +447,7 @@ export default function LeadsPage() {
                                     <div className="flex flex-col h-full min-h-[250px] sm:min-h-[300px]">
                                         <div className="flex items-center gap-3 mb-4 shrink-0">
                                             <MessageSquare className="w-4 h-4 text-orange-500" />
-                                            <h3 className="text-[10px] font-black text-slate-900 uppercase tracking-widest">Inbound Transmission</h3>
+                                            <h3 className="text-[10px] font-black text-slate-900 uppercase tracking-widest">Message</h3>
                                         </div>
                                         <div className="p-5 sm:p-8 rounded-[1.75rem] sm:rounded-[2.5rem] bg-white border border-slate-100 text-slate-700 text-sm leading-relaxed whitespace-pre-wrap shadow-inner-xl flex-1 font-medium opacity-90 overflow-y-auto custom-scrollbar border-dashed">
                                             {selectedLead.description}
@@ -456,7 +456,7 @@ export default function LeadsPage() {
 
                                     <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-8 border-t border-slate-200 shrink-0">
                                         <div className="text-center sm:text-left">
-                                            <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">Signal Timestamp</p>
+                                            <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">Timestamp</p>
                                             <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-none">
                                                 {new Date(selectedLead.createdAt).toLocaleString(undefined, { weekday: 'short', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
                                             </p>

@@ -147,7 +147,7 @@ export default function ServicesManagementPage() {
                 <div className="space-y-1">
                     <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-3">
                         <Layers className="w-8 h-8 text-orange-500" />
-                        Services & Pricing Features
+                        Services
                     </h2>
                     <p className="text-slate-500 font-medium leading-relaxed">
                         Manage company service offerings and check which plans they appear under in the pricing section.
@@ -171,7 +171,7 @@ export default function ServicesManagementPage() {
                         className="inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-3 rounded-2xl font-bold hover:bg-orange-600 transition-all shadow-xl shadow-slate-200 active:scale-95 text-sm group"
                     >
                         <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform duration-300" />
-                        <span>Add Service Offering</span>
+                        <span>Add New Service</span>
                     </button>
                 </div>
             </motion.header>
@@ -188,14 +188,14 @@ export default function ServicesManagementPage() {
                         <div className="px-6 py-20 text-center">
                             <div className="flex flex-col items-center gap-4">
                                 <Loader2 className="w-10 h-10 text-orange-500 animate-spin" />
-                                <p className="text-sm font-bold text-slate-400 tracking-widest uppercase">Scanning Core Nodes...</p>
+                                <p className="text-sm font-bold text-slate-400 tracking-widest uppercase">Loading services...</p>
                             </div>
                         </div>
                     ) : filteredServices.length === 0 ? (
                         <div className="px-6 py-20 text-center">
                             <div className="flex flex-col items-center gap-4 opacity-40">
                                 <Server className="w-16 h-16 text-slate-300" />
-                                <p className="text-slate-400 font-bold uppercase tracking-widest">No services identified</p>
+                                <p className="text-slate-400 font-bold uppercase tracking-widest">No services found</p>
                             </div>
                         </div>
                     ) : (
@@ -293,8 +293,8 @@ export default function ServicesManagementPage() {
                     <table className="w-full text-left border-separate border-spacing-0">
                         <thead>
                             <tr className="bg-slate-50/50 border-b border-slate-100">
-                                <th className="px-8 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Service Profile</th>
-                                <th className="px-8 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Pricing Placements</th>
+                                <th className="px-8 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Service Name</th>
+                                <th className="px-8 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Pricing Tiers</th>
                                 <th className="px-8 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 text-center">Status</th>
                                 <th className="px-8 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 text-right">Operations</th>
                             </tr>
@@ -305,7 +305,7 @@ export default function ServicesManagementPage() {
                                     <td colSpan={4} className="px-8 py-32 text-center">
                                         <div className="flex flex-col items-center gap-4">
                                             <Loader2 className="w-10 h-10 text-orange-500 animate-spin" />
-                                            <p className="text-sm font-bold text-slate-400 tracking-widest uppercase">Scanning Core Nodes...</p>
+                                            <p className="text-sm font-bold text-slate-400 tracking-widest uppercase">Loading services...</p>
                                         </div>
                                     </td>
                                 </tr>
@@ -314,7 +314,7 @@ export default function ServicesManagementPage() {
                                     <td colSpan={4} className="px-8 py-32 text-center">
                                         <div className="flex flex-col items-center gap-4 opacity-40">
                                             <Server className="w-16 h-16 text-slate-300" />
-                                            <p className="text-slate-400 font-bold uppercase tracking-widest">No services identified</p>
+                                            <p className="text-slate-400 font-bold uppercase tracking-widest">No services found</p>
                                         </div>
                                     </td>
                                 </tr>
@@ -445,7 +445,7 @@ export default function ServicesManagementPage() {
                             <div className="w-20 h-20 bg-red-50 text-red-500 rounded-[2rem] flex items-center justify-center mx-auto mb-8">
                                 <Trash2 className="w-10 h-10" />
                             </div>
-                            <h3 className="text-2xl font-black text-slate-900 tracking-tight mb-4">Decommission Node?</h3>
+                            <h3 className="text-2xl font-black text-slate-900 tracking-tight mb-4">Delete Member?</h3>
                             <p className="text-slate-500 font-medium leading-relaxed mb-10">
                                 This will remove the service from all public layouts including individual details and pricing tables.
                             </p>
@@ -460,7 +460,7 @@ export default function ServicesManagementPage() {
                                     onClick={confirmDelete}
                                     className="flex-1 py-4 rounded-2xl bg-red-600 text-white font-black text-[10px] uppercase tracking-[0.2em] hover:bg-red-700 transition-all shadow-xl shadow-red-200"
                                 >
-                                    Confirm Wipe
+                                    Confirm Delete
                                 </button>
                             </div>
                         </motion.div>
@@ -656,12 +656,12 @@ function ServiceModal({ service, onClose, onSuccess }: { service: ServiceRecord 
                     <div className="space-y-12">
                         <div className="inline-flex items-center gap-3 bg-white/10 px-4 py-2 rounded-xl backdrop-blur-md">
                             <Sparkles className="w-4 h-4 text-orange-500" />
-                            <span className="text-[10px] font-black uppercase tracking-widest text-slate-300">Service Config</span>
+                            <span className="text-[10px] font-black uppercase tracking-widest text-slate-300">Service Settings</span>
                         </div>
 
                         <div>
                             <h3 className="text-4xl font-black tracking-tight leading-tight mb-4">
-                                {service ? "Calibrate Service Node" : "Synchronize New Service"}
+                                {service ? "Edit Service" : "Add New Service"}
                             </h3>
                             <p className="text-slate-400 text-sm font-medium leading-relaxed italic opacity-60">
                                 Configure feature metrics, tech stack layers, and pricing inclusions.
@@ -671,7 +671,7 @@ function ServiceModal({ service, onClose, onSuccess }: { service: ServiceRecord 
                         {/* Order Indicator */}
                         <div className="bg-white/5 border border-white/10 p-8 rounded-[2.5rem] backdrop-blur-sm">
                             <div className="flex items-center justify-between">
-                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Global Order</span>
+                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Display Order</span>
                                 <span className="text-2xl font-black text-orange-500">#{formData.order.toString().padStart(2, '0')}</span>
                             </div>
                         </div>
@@ -679,14 +679,14 @@ function ServiceModal({ service, onClose, onSuccess }: { service: ServiceRecord 
 
                     <div className="flex items-center gap-4">
                         <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-                        <span className="text-[10px] font-black text-slate-600 tracking-[0.4em] uppercase">Status: Online</span>
+                        <span className="text-[10px] font-black text-slate-600 tracking-[0.4em] uppercase">Status: Active</span>
                     </div>
                 </div>
 
                 {/* Main Interaction Area */}
                 <div className="flex-1 flex flex-col bg-white min-w-0">
                     <div className="flex items-center justify-between p-8 border-b border-slate-100 shrink-0">
-                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Service Specification</span>
+                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Service Details</span>
                         <button onClick={onClose} className="p-3 bg-slate-50 hover:bg-slate-900 hover:text-white rounded-2xl transition-all">
                             <X className="w-5 h-5" />
                         </button>
@@ -758,7 +758,7 @@ function ServiceModal({ service, onClose, onSuccess }: { service: ServiceRecord 
 
                                 {/* Service Image */}
                                 <div className="space-y-4">
-                                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-900 ml-4 block">Service Card Photo</label>
+                                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-900 ml-4 block">Service Image</label>
                                     <div className="flex items-stretch gap-6">
                                         <div className="relative w-28 aspect-[16/10] rounded-xl overflow-hidden bg-slate-50 border-2 border-slate-100 border-dashed flex items-center justify-center group flex-shrink-0">
                                             {formData.image ? (
