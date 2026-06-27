@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32">
+  <rect width="100" height="100" rx="20" fill="#0F172A"/>
+  <g transform="scale(0.8) translate(10, 10)">
+    <g fill="#F97316">
+      <path d="M42,15 H85 V85 H55 V70 H70 V30 H52 Z"/>
+      <path d="M25,65 H45 V85 H25 Z"/>
+    </g>
+    <polygon points="30,90 75,35 55,75 40,90" fill="black"/>
+  </g>
+</svg>

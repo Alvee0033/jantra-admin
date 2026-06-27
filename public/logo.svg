@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <g fill="#F97316">
+    <!-- Main J body -->
+    <path d="M42,15 H85 V85 H55 V70 H70 V30 H52 Z"/>
+    <!-- Hook/Left part -->
+    <path d="M25,65 H45 V85 H25 Z"/>
+  </g>
+  <!-- Signal Arrow Cut (White) -->
+  <polygon points="30,90 75,35 55,75 40,90" fill="black"/>
+</svg>
